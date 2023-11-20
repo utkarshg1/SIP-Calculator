@@ -34,7 +34,6 @@ def calculate_sip():
         fig = px.pie(df, values='Values', names='Names', title='Invested vs Returns')
         # Convert the Plotly figure to HTML
         graph_html = pio.to_html(fig, full_html=False)
-
         return render_template('index.html', Inv=Inv, M=M, Ret=Ret, pct_ret=pct_ret, graph_html=graph_html)
         
 if __name__=='__main__':
