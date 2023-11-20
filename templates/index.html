@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>SIP Calculator</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+  <div class="calculator-container">
+    <h1>SIP Calculator</h1>
+    
+    <form id="sipForm" action="/calculate" method="POST">
+      <label for="investmentAmount">Monthly Investment Amount:</label>
+      <input type="number" id="investmentAmount" name="investmentAmount" step=0.01 required>
+      
+      <label for="annualReturn">Expected Annual Return (%):</label>
+      <input type="number" id="annualReturn" name="annualReturn" step=0.01 required>
+      
+      <label for="investmentPeriod">Investment Period (in years):</label>
+      <input type="number" id="investmentPeriod" name="investmentPeriod" step=0.01 required>
+      
+      <input type="submit" value="Calculate">
+    </form>    
+
+    <div id="result">
+        <h2>Invested Amount : {{Inv}} INR</h2>
+        <h2>Estimated Total Value : {{ M }} INR</h2>
+        <h2>Estimated Returns : {{ Ret }} INR</h2>
+        <h2>Percentage Returns : {{ pct_ret }} %</h2>
+    </div>
+    
+  </div>
+
+    <div class="plotly-graph">
+        {{ graph_html|safe }}
+    </div>
+
+</body>
+</html>

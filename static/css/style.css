@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .calculator-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+   input[type="submit"] {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+/* Hover effect */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+  
+  #result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+.plotly-graph {
+    display: block; /* Make it a block-level element */
+    clear: both;    /* Clear any floating elements (if applicable) */
+    margin-top: 20px; /* Add margin or padding as needed to create space between containers */
+    padding: 20px;
+    border: 1px solid #ddd; /* Add border or other styles as needed */
+    border-radius: 8px;
+}
