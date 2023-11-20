@@ -30,13 +30,15 @@ def calculate_sip():
         Inv = round(P*n) 
         Ret = round(M - Inv)       
         pct_ret = round((Ret/Inv)*100,2)
+        PV = round(M/(1.06**N))
         # Plotly Graph preperation
         dct = {'Names':['Invested', 'Returns'], 'Values':[Inv, Ret]}
         df = pd.DataFrame(dct)
         fig = px.pie(df, values='Values', names='Names', title='Invested vs Returns')
+        fig.update_layout(title_text='Invested vs Returns', title_x=0.5)
         # Convert the Plotly figure to HTML
         graph_html = pio.to_html(fig, full_html=False)
-        return render_template('index.html', Inv=Inv, M=M, Ret=Ret, pct_ret=pct_ret, graph_html=graph_html)
+        return render_template('index.html', Inv=Inv, M=M, Ret=Ret, pct_ret=pct_ret, PV=PV, graph_html=graph_html)
     
 # Creating API
 @app.route('/calculate_api', methods=['POST'])
@@ -53,11 +55,13 @@ def api_calculation():
     M = round(M)
     Inv = round(P*n) 
     Ret = round(M - Inv)       
-    pct_ret = round((Ret/Inv)*100,2)    
+    pct_ret = round((Ret/Inv)*100,2) 
+    PV = round(M/(1.06**N))   
     return jsonify({'Amount Invested' : Inv,
                     'Estimated Returns' : Ret,
                     'Total Value' : M,
-                    'Percentage Returns' : pct_ret})
+                    'Percentage Returns' : pct_ret,
+                    'Present Value' : PV})
         
 if __name__=='__main__':
     app.run(host='0.0.0.0', debug=False)
