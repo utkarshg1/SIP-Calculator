@@ -7,4 +7,5 @@ statsmodels
 plotly
 nbformat
 Flask
+requests
 ipykernel
